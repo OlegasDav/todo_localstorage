@@ -114,5 +114,7 @@ document.querySelector('body').addEventListener('click', e => {
 document.querySelector('.edit-submit').addEventListener('click', () => {
     var duomenys = localStorage.getItem('Sarasas');
     duomenys = JSON.parse(duomenys);
+    var duomenys = duomenys.map(item => item.todo == h4.innerText ? { ...item, todo: item.todo = editInput.value} : item);
+    localStorage.setItem('Sarasas', JSON.stringify(duomenys));
     h4.innerText = editInput.value;
 });
